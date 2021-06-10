@@ -11,7 +11,7 @@ import (
 	"fmt"
 	"io"
 
-	"github.com/usenkanov/v8"
+	"github.com/minsuhuang/engine8"
 )
 
 const (

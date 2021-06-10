@@ -3,7 +3,7 @@ package v8_test
 import (
 	"fmt"
 
-	"github.com/usenkanov/v8"
+	"github.com/minsuhuang/engine8"
 )
 
 func Example() {

@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"strconv"
 
-	"github.com/usenkanov/v8"
+	"github.com/minsuhuang/engine8"
 )
 
 // AddAllNumbers is the callback function that we'll make accessible the JS VM.
