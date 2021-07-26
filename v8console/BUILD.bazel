@@ -1,0 +1,27 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library", "go_test")
+
+go_library(
+    name = "v8console",
+    srcs = [
+        "console.go",
+        "console_snapshot.go",
+    ],
+    importpath = "github.com/minsuhuang/engine8/v8console",
+    visibility = ["//visibility:public"],
+    deps = ["//:engine8"],
+)
+
+alias(
+    name = "go_default_library",
+    actual = ":v8console",
+    visibility = ["//visibility:public"],
+)
+
+go_test(
+    name = "v8console_test",
+    srcs = ["examples_test.go"],
+    deps = [
+        ":v8console",
+        "//:engine8",
+    ],
+)

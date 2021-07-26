@@ -1,0 +1,19 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_binary", "go_library")
+
+go_library(
+    name = "v8-runjs_lib",
+    srcs = ["main.go"],
+    importpath = "github.com/minsuhuang/engine8/cmd/v8-runjs",
+    visibility = ["//visibility:private"],
+    deps = [
+        "//:engine8",
+        "//v8console",
+        "@com_github_peterh_liner//:go_default_library",
+    ],
+)
+
+go_binary(
+    name = "v8-runjs",
+    embed = [":v8-runjs_lib"],
+    visibility = ["//visibility:public"],
+)

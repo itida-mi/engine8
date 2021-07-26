@@ -1,0 +1,49 @@
+load("@rules_cc//cc:defs.bzl", "cc_import")
+
+cc_import(
+    name = "libv8_base_linux",
+    static_library = "//libv8_linux:libv8_base.a",
+    visibility = ["//visibility:public"],
+)
+
+cc_import(
+    name = "libv8_init_linux",
+    static_library = "//libv8_linux:libv8_init.a",
+    visibility = ["//visibility:public"],
+)
+
+cc_import(
+    name = "libv8_initializers_linux",
+    static_library = "//libv8_linux:libv8_initializers.a",
+    visibility = ["//visibility:public"],
+)
+
+cc_import(
+    name = "libv8_libbase_linux",
+    static_library = "//libv8_linux:libv8_libbase.a",
+    visibility = ["//visibility:public"],
+)
+
+cc_import(
+    name = "libv8_libplatform_linux",
+    static_library = "//libv8_linux:libv8_libplatform.a",
+    visibility = ["//visibility:public"],
+)
+
+cc_import(
+    name = "libv8_libsampler_linux",
+    static_library = "//libv8_linux:libv8_libsampler.a",
+    visibility = ["//visibility:public"],
+)
+
+cc_import(
+    name = "libv8_nosnapshot_linux",
+    static_library = "//libv8_linux:libv8_nosnapshot.a",
+    visibility = ["//visibility:public"],
+)
+
+cc_import(
+    name = "libv8_snapshot_linux",
+    static_library = "//libv8_linux:libv8_snapshot.a",
+    visibility = ["//visibility:public"],
+)

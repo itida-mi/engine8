@@ -1,0 +1,106 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library", "go_test")
+
+go_library(
+    name = "engine8",
+    srcs = [
+        "doc.go",
+        "kind.go",
+        "v8.go",
+        "v8_c_bridge.cc",
+        "v8_c_bridge.h",
+        "v8_create.go",
+        "libplatform.h",
+        "libplatform-export.h",
+        "v8-tracing.h",
+        "v8-platform.h",
+        "v8.h",
+        "v8-version.h",
+        "v8config.h"
+    ],
+    cgo = True,
+    clinkopts = ["-pthread"],
+    cxxopts = ["-I. -Iinclude -fno-rtti -fpic -std=c++11"],
+    importpath = "github.com/minsuhuang/engine8",
+    cdeps = [
+        "//:cc_lib"
+    ],
+    visibility = ["//visibility:public"],
+)
+
+cc_library(
+    name = "cc_lib_mac",
+    hdrs = [
+        "libplatform.h",
+        "libplatform-export.h",
+        "v8-tracing.h",
+        "v8-platform.h",
+        "v8.h",
+        "v8-version.h",
+        "v8config.h"
+    ],
+    deps = [
+        "//libv8_mac:libv8_base_mac",
+        "//libv8_mac:libv8_init_mac",
+        "//libv8_mac:libv8_initializers_mac",
+        "//libv8_mac:libv8_libbase_mac",
+        "//libv8_mac:libv8_libplatform_mac",
+        "//libv8_mac:libv8_libsampler_mac",
+        "//libv8_mac:libv8_nosnapshot_mac",
+        "//libv8_mac:libv8_snapshot_mac",
+    ],
+    visibility = ["//visibility:public"],
+)
+
+cc_library(
+    name = "cc_lib_linux",
+    hdrs = [
+        "libplatform.h",
+        "libplatform-export.h",
+        "v8-tracing.h",
+        "v8-platform.h",
+        "v8.h",
+        "v8-version.h",
+        "v8config.h"
+    ],
+    deps = [
+        "//libv8_linux:libv8_base_linux",
+        "//libv8_linux:libv8_init_linux",
+        "//libv8_linux:libv8_initializers_linux",
+        "//libv8_linux:libv8_libbase_linux",
+        "//libv8_linux:libv8_libplatform_linux",
+        "//libv8_linux:libv8_libsampler_linux",
+        "//libv8_linux:libv8_nosnapshot_linux",
+        "//libv8_linux:libv8_snapshot_linux",
+    ],
+    visibility = ["//visibility:public"],
+)
+
+alias(
+    name = "cc_lib",
+    actual = select(
+        {
+            "@bazel_tools//src/conditions:darwin": "//:cc_lib_mac",
+            "@bazel_tools//src/conditions:darwin_x86_64": "//:cc_lib_mac",
+            "@bazel_tools//src/conditions:linux_x86_64": "//:cc_lib_linux",
+        },
+    ),
+)
+
+
+alias(
+    name = "go_default_library",
+    actual = ":engine8",
+    visibility = ["//visibility:public"],
+)
+
+go_test(
+    name = "engine8_test",
+    srcs = [
+        "benchmarks_test.go",
+        "example_bind_test.go",
+        "examples_test.go",
+        "kind_test.go",
+        "v8_test.go",
+    ],
+    embed = [":engine8"],
+)

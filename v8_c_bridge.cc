@@ -1,6 +1,6 @@
 #include "v8_c_bridge.h"
 
-#include "libplatform/libplatform.h"
+#include "libplatform.h"
 #include "v8.h"
 
 #include <cstdlib>
