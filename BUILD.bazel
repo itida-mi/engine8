@@ -28,22 +28,21 @@ go_library(
 cc_library(
     name = "cc_lib_mac",
     hdrs = [
-        libplatform-export.h
-        libplatform.h
-        v8-debug.h
-        v8-inspector-protocol.h
-        v8-inspector.h
-        v8-platform.h
-        v8-profiler.h
-        v8-testing.h
-        v8-tracing.h
-        v8-util.h
-        v8-value-serializer-version.h
-        v8-version-string.h
-        v8-version.h
-        v8.h
-        v8_c_bridge.h
-        v8config.h
+        "libplatform-export.h",
+        "libplatform.h",
+        "v8-debug.h",
+        "v8-inspector-protocol.h",
+        "v8-inspector.h",
+        "v8-platform.h",
+        "v8-profiler.h",
+        "v8-testing.h",
+        "v8-tracing.h",
+        "v8-util.h",
+        "v8-value-serializer-version.h",
+        "v8-version-string.h",
+        "v8-version.h",
+        "v8.h",
+        "v8config.h"
     ],
     deps = [
         "//libv8_mac:libv8_base_mac",
@@ -61,21 +60,21 @@ cc_library(
 cc_library(
     name = "cc_lib_linux",
     hdrs = [
-        libplatform-export.h
-        libplatform.h
-        v8-debug.h
-        v8-inspector-protocol.h
-        v8-inspector.h
-        v8-platform.h
-        v8-profiler.h
-        v8-testing.h
-        v8-tracing.h
-        v8-util.h
-        v8-value-serializer-version.h
-        v8-version-string.h
-        v8-version.h
-        v8.h
-        v8config.h
+        "libplatform-export.h",
+        "libplatform.h",
+        "v8-debug.h",
+        "v8-inspector-protocol.h",
+        "v8-inspector.h",
+        "v8-platform.h",
+        "v8-profiler.h",
+        "v8-testing.h",
+        "v8-tracing.h",
+        "v8-util.h",
+        "v8-value-serializer-version.h",
+        "v8-version-string.h",
+        "v8-version.h",
+        "v8.h",
+        "v8config.h"
     ],
     deps = [
         "//libv8_linux:libv8_base_linux",
