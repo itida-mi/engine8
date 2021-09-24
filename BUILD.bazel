@@ -102,7 +102,6 @@ alias(
     actual = select(
         {
             "@bazel_tools//src/conditions:darwin": "//:cc_lib_mac",
-            "@bazel_tools//src/conditions:darwin_x86_64": "//:cc_lib_mac",
             "@bazel_tools//src/conditions:linux_x86_64": "//:cc_lib_linux",
             "//conditions:default": "//:cc_lib_linux",
         },
