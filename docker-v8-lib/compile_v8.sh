@@ -22,7 +22,7 @@ gn gen out.gn/lib --args='
 
     icu_use_data_file = false
     is_desktop_linux = false
-    v8_enable_i18n_support = false
+    v8_enable_i18n_support = true
     v8_use_external_startup_data = false
     v8_enable_gdbjit = false'
 ninja -C out.gn/lib v8_libbase v8_libplatform v8_base v8_nosnapshot v8_libsampler v8_init v8_initializers
